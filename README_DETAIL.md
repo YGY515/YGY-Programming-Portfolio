@@ -149,9 +149,9 @@
 
 - 플레이어나 NPC가 말할 때마다 대사를 출력하게 함.
 
-- 대사를 출력하는 <b>매니저 스크립트</b>를 상위에 두고, 하위에 NPC 대사 스크립트와 플레이어 대사 스크립트를 두어 필요할 때마다 매니저를 호출함.
+- 대사를 출력하는 매니저 스크립트를 상위에 두고, 하위에 NPC 대사 스크립트와 플레이어 대사 스크립트를 두어 필요할 때마다 매니저를 호출함.
 
-- csv로 저장된 각 대사는 CsvHelper 라이브러리를 통해 페이즈에 맞게 출력함.
+- csv로 저장된 각 대사는 <b>CsvHelper</b> 라이브러리를 통해 페이즈에 맞게 출력함. - [해당 CsvHelper를 활용한 코드](https://github.com/YGY515/YGY-Programming-Portfolio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C%20%EC%BD%94%EB%93%9C/%EC%BD%94%EB%93%9C%3A%20%EC%95%88%ED%8B%B0%EB%8D%B0%EC%8B%9C%EC%8A%A4%20%EB%A6%AC%EB%B9%8C%EB%93%9C/Manager/CsvReaderManager.cs)
 
 <br>
 
