@@ -7,8 +7,6 @@ public class DamageTextManager : MonoBehaviour
     public RectTransform canvasRect;
     public Camera mainCamera;
     public TMP_Text damageTextPrefab;
-    public float floatUpDistance = 80f;
-    public float duration = 1.0f;
 
     void Awake()
     {
@@ -21,8 +19,6 @@ public class DamageTextManager : MonoBehaviour
             mainCamera = Camera.main;
     }
 
-
-
     public void ShowDamage(Vector3 worldPos, int damage, bool isCritical)
     {
         Vector2 screenPos = mainCamera.WorldToScreenPoint(worldPos);
@@ -31,13 +27,17 @@ public class DamageTextManager : MonoBehaviour
 
 
         TMP_Text dmgText = Instantiate(damageTextPrefab, canvasRect);
-        dmgText.rectTransform.anchoredPosition = anchoredPos + Vector2.up * 20f; // 데미지 텍스트 보스 위로 조금 올리기
+
+        // 데미지 텍스트 보스 위치 위로 조금 올리기 (20f 만큼)
+        dmgText.rectTransform.anchoredPosition = anchoredPos + Vector2.up * 20f;
 
 
         if (isCritical)
         {          
             dmgText.text = $"<b>{damage}<size=80%><color=#FF2222>치명타!</color></size></b>";
-            dmgText.color = new Color(1f, 0.3f, 0.3f); // 치명타는 붉은 글자로
+
+            // 치명타는 붉은 글자로
+            dmgText.color = new Color(1f, 0.3f, 0.3f); 
             Camera.main.GetComponent<PlayerCamera>().CriticalZoom();
         }
 
@@ -53,6 +53,9 @@ public class DamageTextManager : MonoBehaviour
     private System.Collections.IEnumerator FloatAndFade(TMP_Text dmgText)
     {
         float elapsed = 0f;
+        float floatUpDistance = 80f;
+        float duration = 1.0f;
+
         Vector2 start = dmgText.rectTransform.anchoredPosition;
         Vector2 end = start + Vector2.up * floatUpDistance;
         Color startColor = dmgText.color;
@@ -65,6 +68,7 @@ public class DamageTextManager : MonoBehaviour
             dmgText.color = new Color(startColor.r, startColor.g, startColor.b, 1f - t);
             yield return null;
         }
+
         Destroy(dmgText.gameObject);
     }
 }
