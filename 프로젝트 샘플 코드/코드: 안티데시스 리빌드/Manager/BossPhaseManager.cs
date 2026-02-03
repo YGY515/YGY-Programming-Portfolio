@@ -17,6 +17,7 @@ public class BossPhaseManager : MonoBehaviour
     public void AdvancePhase()
     {
         currentPhase++;
-        //Debug.Log($"ÇöÀç ÆäÀÌÁî: {currentPhase}´Ü°è");
+        // Debug.Log($"í˜„ì¬ í˜ì´ì¦ˆ: {currentPhase}");
     }
 }
+
